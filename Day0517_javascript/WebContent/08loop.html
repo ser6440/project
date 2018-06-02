@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>반복문</title>
+<style type="text/css">
+	.bluetext{
+		color: blue;
+	}
+	.redtext{
+		color: red;
+	}
+</style>
+	<script type="text/javascript">
+	/* 반복문
+		for(for each), while, do-while
+	*/
+	
+	//1부터 30까지 반복하면서 짝수는 파란색, 홀수는 빨간색으로 숫자 출력
+	//세로로 출력하기 >> while
+	//구구단 출력 >> for
+	//별도 찍어보기 >> for
+	var n = 1;
+	while(n<=30){
+		if(n%2==0){
+			document.write('<div class="bluetext">'+n+'</div>');
+		}else{
+			document.write('<div class="redtext">'+n+'</div>');
+		}
+		n++;
+	}
+	
+ 	for(i=2;i<10;i++){
+			document.write(i+"단","<br>");
+		for(j=1;j<10;j++){
+			document.write("i * j =" + i*j,"<br>");
+		}
+	} 
+	
+	for(i=1;i<5;i++){
+		for(j=0;j<i;j++){
+			document.write("*");
+		}
+		document.write("*");
+	}
+	
+	</script>
+</head>
+<body>
+
+</body>
+</html>

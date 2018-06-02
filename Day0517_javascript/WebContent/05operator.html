@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script type="text/javascript">
+		/* 비교연산, 논리연산 */
+		
+		/* 
+			>,<,>=,<=,==,!=,===
+		*/
+		var num1 = 5;
+		var num2 = 7;
+		var strNum = "5";
+		var result;
+		
+		document.write("num1 : 5, num2 : 7" + result,"<br>");
+		result = num1>num2;		
+		document.write("num1 > num2 : " + result,"<br>");
+		
+		result = num1<num2;		
+		document.write("num1 < num2 : " + result,"<br>");
+		
+		result = num1>=num2;		
+		document.write("num1 >= num2 : " + result,"<br>");
+		
+		result = num1<=num2;		
+		document.write("num1 <= num2 : " + result,"<br>");
+		
+		//숫자든 문자든 값이 같기 때문에 같은 것으로 판단, 결과는 true 같음
+		result = num1 == strNum;	
+		document.write("num1 != strNum : " + result,"<br>");
+		
+		//값 비교 + 데이터 타입비교
+		result = num1 !== strNum;
+		document.write("num1 !== strNum : " + result,"<br>");
+		
+		/* 논리연산자 */
+		// && || !
+		document.write("<hr>");
+		
+		var a = 10;
+		var b = 20;
+		var c = 30;
+		var result1;
+		
+		result1 = (a > b) && (b < c);
+		document.write("(a > b) && (b < c) : " + result,"<br>");
+		
+		result1 = (a > b) || (b < c);
+		document.write("(a > b) && (b < c) : " + result,"<br>");
+		document.write("!((a > b) && (b < c)) : " + result,"<br>");
+		
+		/* 삼항조건연산자 */
+		// 조건식? 값1:값2;
+		result1 = a > b? "a가 큽니다." : "b가 큽니다.";
+		document.write("result1 = a > b? 'a가 큽니다.' : 'b가 큽니다.'");
+	</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>연결 선택자</title>
+<style type="text/css">
+	/* 
+	연결선택자:
+	특정한 요소를 하나 선택하고, 
+	그 요소를 기준으로 부모,
+	형제, 자식 요소를 선택하는 선택자
+	
+	하위 선택자
+		요소1 요소2 : 요소1의 하위 요소중 요소2인 요소를 모두 선택
+		ex)ul li : ul의 하위요소인 li 선택
+			<ul>
+				<li></li>
+			</ul>
+			<ol>
+				<li></li>
+			</ol>
+			
+	자식 선택자
+		요소1 > 요소2 : 요소1의 자식 요소 중 요소2인 요소를 모두 선택
+	인접형제 선택자
+		요소1 + 요소2 : 요소1 다음에 나오는 형제요소 중, 요소2인 요소를 선택
+	형제 선택자
+		요소1 ~ 요소2 : 요소1보다 나중에 나오는 형제요소 중, 요소2인 모든 요소
+	 */
+	 
+	 /* 하위 선택자 */
+/* 	 ul li{
+	 	border: 1px dotted blue;
+	 } */
+	 
+ 	 /* 하위요소 선택자 */
+/* 	 section ul{
+	 	border: 1px dotted blue;
+	 }  */
+	 
+	  /* 자식요소 선택자 */
+/* 	 section > ul{
+	 	border: 1px dotted blue;
+	 }  */
+	 
+	 /* 인접형제 선택자 */
+/* 	 #ul1+ol{
+	 	border: 1px dotted blue;
+	 } */
+	 
+	 /* 형제선택자 */
+/* 	 #ul1 ~ ol{
+	 	border: 1px dotted blue;
+	 } */
+	 
+	 /* #ul2 ~ ul{
+	 	border: 1px dotted red;
+	 } */
+	 
+ 	 :root{ /* 구조적으로 최상위 요소 선택 */
+	 	border: 1px dotted red;
+	 } 
+	 
+	 /* 
+	 	nth-child(n)
+	 	: 자식 요소중에 특정한 위치에 있는 자식 요소를 선택
+	  */
+	 /**/
+/* 	 section > ul:first-child{
+	 	border: 1px dotted blue;
+	 } */
+	 
+/* 	 section > ul:last-child{
+	 	border: 1px dotted blue;
+	 } */
+	 
+	 /* 짝수번째 요소: 2n, even
+	          홀수번째 요소: 2n+1, odd 
+	  */        
+	 ul > li:nth-child(2n+1){
+	 	border: 1px dotted blue;
+	 }
+	 
+</style>
+</head>
+<body>
+	<section>
+		<ul id="ul1">
+			<li>예약방법
+				<ul>
+					<li>전화통화 : 010-8989-6565</li>
+					<li>문자남기기</li>
+				</ul>
+			</li>
+			<li id="fee1">요금1
+				<ul>
+					<li>1인: 40000원</li>
+					<li>2인: 60000원</li>
+					<li>3인: 80000원</li>
+					<li>4인: 100000원</li>
+				</ul>
+			</li>
+			<li id="fee2">요금2
+				<ul>
+					<li>1인: 40000원</li>
+					<li>2인: 60000원</li>
+					<li>3인: 80000원</li>
+					<li>4인: 100000원</li>
+				</ul>
+			</li>
+			<li id="fee3">요금3
+				<ul>
+					<li>1인: 40000원</li>
+					<li>2인: 60000원</li>
+					<li>3인: 80000원</li>
+					<li>4인: 100000원</li>
+				</ul>
+			</li>
+			<li id="fee4">요금4
+				<ul>
+					<li>1인: 40000원</li>
+					<li>2인: 60000원</li>
+					<li>3인: 80000원</li>
+					<li>4인: 100000원</li>
+				</ul>
+			</li>
+		</ul>
+		<ul id="ul2">
+			<li>예약방법2
+				<ul>
+					<li>전화통화 : 010-8989-6565</li>
+					<li>문자남기기</li>
+				</ul>
+			</li>
+			<li>요금
+				<ul>
+					<li>1인: 40000원</li>
+					<li>2인: 60000원</li>
+					<li>3인: 80000원</li>
+					<li>4인: 100000원</li>
+				</ul>
+			</ul>
+			<ul id="ul3">
+			<li>예약방법3
+				<ul>
+					<li>전화통화 : 010-8989-6565</li>
+					<li>문자남기기</li>
+				</ul>
+			</li>
+			<li>요금
+				<ul>
+					<li>1인: 40000원</li>
+					<li>2인: 60000원</li>
+					<li>3인: 80000원</li>
+					<li>4인: 100000원</li>
+				</ul>
+			</ul>
+		</ul>
+	</section>
+</body>
+</html>

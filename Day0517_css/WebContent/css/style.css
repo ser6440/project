@@ -1,0 +1,27 @@
+.navi{
+	padding-top: 10px;
+	background-color: olive;
+}
+.navi ul{
+	list-style: none;
+	height: 40px;
+	text-align: center;	
+}
+.navi ul li{
+	display: inline;
+}
+.navi a{
+	padding: 20px;
+	font-weight: bold;
+}
+
+/* a요소에 링크가 걸려있거나 링크를 한 번이라도 방문했으면 */
+.navi a:link, .navi a:visited{
+	color: white;
+	text-decoration: none;
+}
+
+/* 마우스가 오버되거나 포커스를 얻으면 선택해서 글자색깔 바꿈 */
+.navi a:hover, .navi a:focus{
+	color: navy;
+}

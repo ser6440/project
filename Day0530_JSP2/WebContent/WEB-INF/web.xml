@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
+  <display-name>Day0530_JSP2</display-name>
+  <servlet>
+    <servlet-name>memberServlet</servlet-name>
+    <servlet-class>servlet.MemberServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>memberServlet</servlet-name>
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+  
+  <!-- 필터 등록 -->
+  <filter>
+  	<filter-name>loginCheckFilter</filter-name>
+  	<filter-class>filter.LoginCheckFilter</filter-class>
+  </filter>
+  
+  <!-- 필터가 처리할 요청 명시 -->
+  <filter-mapping>
+  	<filter-name>loginCheckFilter</filter-name>
+  	<url-pattern>/modify</url-pattern>
+  	<url-pattern>/modifyForm</url-pattern>
+  	<url-pattern>/memberList</url-pattern>
+  	<url-pattern>/main</url-pattern>
+  </filter-mapping>
+</web-app>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+ul {
+	list-style: none;
+}
+</style>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- checkbox, radio 사용해보기 -->
+	<h2>수강신청</h2>
+	<form>
+		<h3>수강분야(중복선택가능)</h3>
+		<ul>
+			<li>
+			<label>
+				<input type="checkbox" name="study" value="grammer">문법
+			</label>
+			</li>
+
+			<li>
+				<label> 
+					<input type="checkbox" name="study" value="writing">작문
+				</label>
+			</li>
+
+			<li>
+				<label>
+					<input type="checkbox" name="study" value="reading">독해
+				</label>
+			</li>
+
+		</ul>
+
+		<h3>수강과목(중복선택불가)</h3>
+		<ul>
+			<li>
+				<label>
+					<input type="radio" name="subject" value="eng">영어
+				</label>
+			</li>
+			<li>
+				<label>
+					<input type="radio" name="subject" value="kor">한국어
+				</label>
+			</li>
+			<li>
+				<label>
+					<input type="radio" name="subject" value="jp">일본어
+				</label>
+			</li>
+		</ul>
+		<h3>학습 단계 선택</h3>
+		<select name="level">
+			<option value="basic">초급</option>
+			<option value="mideum">중급</option>
+			<option value="advanced">고급</option>
+		</select> 
+		<br> 
+		<br> 
+		<input type="submit" value="신청">
+	</form>
+</body>
+</html>

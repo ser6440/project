@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- table : 데이터를 표 형식으로 표현하고 싶을 때 사용하는 요소
+텍스트 데이터를 화면에 표시할 때도 사용
+전체적인 레이아웃을 잡을 때도 사용
+<tr>가로줄, 행
+<th>칼럼,제목(하나의 셀을 의미)
+ -->
+ 
+ <!-- style속성은 따로 지정해 놓고 사용할 수 있음
+ css(Cascading Style Sheet)
+  -->
+  
+ <!-- th와 td가 공통 style 속성을 가지니까 따로 모아 놓고 사용할 수 있음 -->
+ 	<style>
+ 		/* 문서내 모든 th,td에 style 속성지정 */
+ 		th,td{
+ 			width:80px;
+ 			padding:10px;
+ 		}
+ 	</style>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- tr : 로우
+		 th : 테이블 칼럼 제목
+		 td : 테이블 셀 (요소)
+		 colspan : 셀병합
+	-->
+<!-- 	<table border = "1">
+		<tr>
+			<th>제목1</th>
+			<th>제목2</th>
+			<th>제목3</th>
+		</tr>
+		<tr>
+			<td colspan = "2">내용</td>
+			<td>내용</td>
+
+		</tr>
+		<tr>
+			<td rowspan ="2">내용</td>
+			<td>내용</td>
+			<td>내용</td>
+		</tr>
+		<tr>
+			<td>내용</td>
+			<td>내용</td>
+		</tr>
+	</table> -->
+	
+	<table border = "1">
+		<tr>
+			<th style = "width : 80px; padding:10px;">이름</th>
+			<td></td>
+			<th>연락처</th>
+			<td></td>
+		</tr>
+		<tr style = "background-color:blue">
+			<th>주소</th>
+			<td colspan = "3"></td>		
+		</tr>
+		<tr>
+			<th>자기소개</th>
+			<td colspan = "3"></td>	
+		</tr>
+	</table>
+</body>
+</html>

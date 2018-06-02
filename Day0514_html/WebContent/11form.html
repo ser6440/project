@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type = "text/css">
+	ul{
+		list-style: none;
+	}
+	legend{
+		font-size:20px;
+		font-weight:600;
+	}
+	li{
+		margin-bottom: 10px;
+	}
+	div{
+		width:600px;
+		/*요소를 중간에 배치하기*/
+		margin: 0 auto;
+	}
+</style>
+<meta charset="UTF-8">
+<title>상품주문</title>
+</head>
+<body>	
+	<!-- div 태그 이용하면 문서내에서 영역을 지정할 수 있다.
+	block 요소 -->
+	<div>
+	<h2>상품주문서</h2>
+<form>
+	<fieldset>
+		<legend><span style="color: purple">개인 정보</span></legend>
+		<ul>
+			<li>
+				<label>이름  
+				<input type="text" name="id" id="id" placeholder="여백없이 입력">
+				</label>
+			</li>
+			<li>
+				<label>연락처
+				<input type="text" name="pn" id="pn" placeholder="연락가능한번호">
+				</label>
+			</li>
+		</ul>
+	</fieldset>
+	<fieldset>
+		<legend><span style="color: purple">배송지 정보</span></legend>
+		<ul>
+			<li>
+				<label for="adr">주소</label>
+					 <input type="text" name="adr" id="adr" style="width:400px">
+			</li>
+			<li>	
+				<label>전화번호 </label>
+					<input type="text" name="ph" id="ph">
+			</li>
+			<li>
+				<label>메모 </label>
+					<textarea rows="3" cols="40" name="memo"></textarea>
+			</li>
+		</ul>
+	</fieldset>
+	<fieldset>
+		<legend><span style="color: purple">주문 정보</span></legend>
+		<ul>
+			<li>
+				<label>
+				<input type="checkbox" name="cof" value="anti">과테말라 안티구아(100g)<input type="text" min="0" style="width:50px" value="0">개
+			</label>
+			</li>
+			<li>
+				<label>
+				<input type="checkbox" name="cof" value="man">인도네시아 만델링(100g)<input type="text" min="0" style="width:50px" value="0">개
+			</label>
+			</li>
+			<li>
+				<label>
+				<input type="checkbox" name="cof" value="blen">탐나는도다(블렌딩)(100g)<input type="text" min="0" style="width:50px" value="0">개
+			</label>
+			</li>
+		</ul>
+	</fieldset>
+	<input type="submit" value="주문하기">
+	<input type="submit" value="다시작성">
+</form>
+
+	</div>
+
+</body>
+</html>

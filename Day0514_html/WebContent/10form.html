@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+	ul{
+		list-style: none;
+	}
+	legend{
+		font-size:20px;
+		font-weight: 600
+	}
+</style>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- 기타 form에서 사용할 수 있는 input 요소
+     number, color, range, date, file
+ -->
+ <h2>정보입력</h2>
+ <form>
+ 	<fieldset>
+ 		<legend>등록정보</legend>
+ 		<ul>
+ 			<li>
+ 				<label for="member">참여인원<small>(최대10명)</small></label>
+ 				<input type="number" id="member" name="member" min="0" max="10" value="1">
+ 			</li>
+ 			<li>
+ 				<label for="stuffs">지원물품<small>(인당 5개)</small></label>
+ 				<input type="number" min="0" max="10" step="5" id="stuffs">
+ 			</li>
+ 			<li>
+ 				<label for="level">희망단계<small>(하,중,상)</small></label>
+ 				<input type="range" id="level" value="1" min="1" max="3">
+ 			</li>
+ 			<li>
+ 				<label for="date">날짜</label>
+ 				<input type="date" id="date">
+ 			</li>
+ 			<li>
+ 				<label for="color">색깔</label>
+ 				<input type="color" id="color" name="color">
+ 			</li>
+ 			<li>
+ 				<label for="file">파일</label>
+ 				<input type="file" id="file" name="file">
+ 			</li>
+ 		</ul>
+ 	</fieldset>
+ </form>
+
+</body>
+</html>

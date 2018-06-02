@@ -1,0 +1,19 @@
+/*
+<style>
+</style>태그는 사용할 필요X
+
+선택자{
+	스타일 속성: 속성값;
+}
+
+*/
+
+h1{
+	color: red;
+	font-size: 30px;
+	font-family: 돋움; /*궁서,굴림,돋움,바탕*/	
+}
+ul{
+	color: blue;
+	
+}

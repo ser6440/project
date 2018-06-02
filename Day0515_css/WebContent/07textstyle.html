@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+		/*텍스트 관련 스타일 지정
+			font-family : 글꼴
+			font-size : 글자 크기
+			font-weight : 글자 굵기
+			color : 글자색깔
+			line-align : 줄간격
+			text-indent : 들여쓰기	
+
+			css에서 크기의 단위
+			em: 사용중인 글꼴의 대문자 M 가로길이 기준
+			ex: 사용중인 글꼴의 소문자 x의 높이 기준
+			px: 화면의 px단위로 글자를 표시하는 방법
+			pt: 일반적으로 사용하는 문서에서 글자 크기	
+		*/
+	p{
+		font-size: 30px;
+	}
+	
+	.emsize{
+		font-size: 3em;
+		/*가로거리,세로거리,흩어짐 정도, 색상*/
+		text-shadow: 10px 10px 10px black, 7px 7px 5px red, 9px 9px 7px orange;
+	}
+	.exsize{
+		font-size: 3ex;
+		text-transform: lowercase;
+	}
+	.pxsize{
+		font-size: 30px;
+		text-decoration: underline;
+	}
+	.ptsize{
+		font-size: 30pt;
+		text-decoration: line-through;
+	}
+	</style>
+<meta charset="UTF-8">
+<title>텍스트 관련 스타일</title>
+</head>
+<body>
+	<p class="emsize">HELLO CSS!!</p>
+	<p class="exsize">HELLO CSS!!</p>
+	<p class="pxsize">HELLO CSS!!</p>
+	<p class="ptsize">HELLO CSS!!</p>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>form 요소 선택하기</title>
+	<script type="text/javascript">
+		/* form 요소의 경우에는 이름(name) 속성으로 요소를 선택할 수 있다. 
+			form 요소의 하위요소도 이름으로 선택가능
+		*/
+		window.onload = function(){
+			//loginForm 이름을 가지는 form 요소에 submit 이벤트가 발생하면 실행할 문장
+			document.loginForm.onsubmit = function(){
+				/* id랑 비밀번호 가져와서 alert 해보기 */
+				var id = document.loginForm.userID.value;
+				var pw = document.loginForm.userPw.value;
+				
+				alert("id" + id);
+				alert("pw" + pw);
+			}
+		document.loginForm.check1.checked = true;
+		var check1 = document.loginForm.checked1;
+		var check2 = document.loginForm.checked2;
+		var check3 = document.loginForm.checked3;
+		
+		/* 각각의 check요소에 onclick 이벤트 핸들 */
+		
+		check1.onclick = function(){
+			if(check1.checked = true){
+			check2.checked = false;
+			check3.checked = false;
+			}
+		};
+		check2.onclick = function(){
+			if(check2.checked = true){
+			check1.checked = false;
+			check3.checked = false;
+			}
+		};
+		check3.onclick = function(){
+			if(check3.checked = true){
+			check2.checked = false;
+			check1.checked = false;
+			}
+		};
+		};
+		
+	</script>
+</head>
+<body>
+	<form name="loginForm" action="#">
+		<fieldset>
+			<legend>회원 로그인</legend>
+			<P>
+				<label for="user_id">아이디</label>
+				<input type="text" name="userID" id="user_id">
+			</P>
+			<P>
+				<label for="user_pw">비밀번호</label>
+				<input type="password" name="userPw" id="user_pw">
+			</P>
+		</fieldset>
+		<p>
+		<input type="submit" value="로그인">
+		</p>
+		
+		<p>
+			<label for="check1">값1</label>
+			<input type="checkbox" name="check1" id="check1" value="v1">
+			
+			<label for="check2">값2</label>
+			<input type="checkbox" name="check2" id="check2" value="v2">
+			
+			<label for="check3">값3</label>
+			<input type="checkbox" name="check3" id="check3" value="v3">
+		</p>
+		
+		<p>
+			<label for="radio1">값1</label>
+			<input type="radio" name="radio" id="radio1" value="r1">
+			
+			<label for="radio2">값2</label>
+			<input type="radio" name="radio" id="radio2" value="r2">
+			
+			<label for="radio3">값3</label>
+			<input type="radio" name="radio" id="radio3" value="r3">
+		</p>
+		
+	</form>
+</body>
+</html>

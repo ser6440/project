@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>속성 변경하기</title>
+	<script type="text/javascript">
+		//img1 아이디를 가지는 요소 선택 후,
+		//src속성을 변경
+		/* 
+		속성 변경
+	          요소선택.속성명="값";
+		요소선택.setAttribute("속성명",값);
+		
+		속성값 가져오기
+		요소선택.속성명
+		요소선택.getAttribute("속성명");
+		*/
+		
+		//요소선택 : 문서가 로딩되고 난 뒤(모든 요소가 만들어진 후)에 요소선택
+		//window 객체에 onload 이벤트가 발생하면 function 실행
+		window.onload=function(){
+			//요소선택: document.getElement~~~
+			//alert(document.getElementById("img1").src);
+			//alert("123");
+			document.getElementById("img1").src="img/pic_2.jpg";
+			
+			setTimout(function(){
+				document.getElementById("img1").src = "imgq/pic_2.jpg";
+			},3000);
+			
+		/* innerHTML
+		해당 요소의 모든 하위요소를 불러오거나, 변경할 때 사용
+		요소선택.innerHTML : 선택한 요소의 하위요소를 문자로 변환
+		요소선택.innerHTML = 새요소
+		*/
+			//alert(document.getElementById("img2").innerHTML);
+			
+			document.getElementById("img2").innerHTML 
+			= "<img alt='사진' src='img/pic_4.jpg' >";
+		};
+		
+	</script>
+</head>
+<body>
+	<!-- 1. html 코드로 요소 생성 
+	     2. javascript에서 요소 선택
+	     3. javascript에서 선택한 요소의 속성 변경
+	     
+	             할일 : 이미지 요소의 src속성 바꾸기
+	             
+	-->
+	<h1>이미지 바꾸기</h1>
+	<img id="img1" alt="이미지" src="img/pic_1.jpg">
+	<div id="img2">
+		<img src="img/pic_3.jpg">
+	</div>
+	
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>차량견적</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		h1{
+			text-align: center;
+		}
+		
+		table{
+			border: 1px solid gray;
+			border-collapse: collapse;
+		}
+		
+		
+		body{
+			font-size: 12px;
+			font-family: dotum;
+		}
+		#carZone{
+			width: 600px;
+			margin: 0 auto; 
+		}
+		
+		#carZone td{
+			text-align: center;
+		}
+		
+		
+		
+		#estimate{
+			width: 100%;
+		}
+		#estimate th, td{
+			border: 1px solid gray;
+			height: 30px;
+		}
+		
+		#estimate th{
+			background-color: #333;
+			color: white;
+		}
+		
+		#total {
+		
+			border: none;
+			background:  none;
+			font-size: 1.5em;
+			font-weight: bold;
+			text-align: center;
+		}		
+	</style>
+	<script type="text/javascript">
+		var carTotalValue;
+		
+		window.onload = function(){
+			carTotalValue = document.getElementById("total").defaultValue;
+		};
+		
+		function car(){
+			//체크박스 이벤트 발생했을 때 실행되는 함수
+			//해야할일:
+			//1. total 가격 가지고 와서
+			//2. 모든 체크박스 검사하면서 체크되어 있으면 값 더해주기
+			//**	요소선택.value : 값 가져오기
+			//		요소선택.defaultValue : 초기값 가져오기
+			
+// 			var total = document.getElementById("total");
+// 			var opt1 = document.getElementById("opt1");
+// 			var opt2 = document.getElementById("opt2");
+// 			var opt3 = document.getElementById("opt3");
+		
+
+// 			var total1 = document.getElementById("total").defaultValue;
+// 			if (opt1.checked == true) {
+// 					total1 = Number(total1) + Number(opt1.value);
+// 				}else if (opt2.checked == true) {
+// 					total1 = Number(total1) + Number(opt2.value);
+// 				} else if (opt3.checked == true) {
+// 					total1 = Number(total1) + Number(opt3.value);
+// 				}
+// 			document.getElementById("total").value = total1;
+// 			}
+		
+		var carTotal = carDefaultValue;
+		
+		var checkOpt1 = document.getElementById("opt1");
+		var checkOpt2 = document.getElementById("opt2");
+		var checkOpt3 = document.getElementById("opt3");
+		
+// 		if(checkOpt1.checked){
+// 			//옵션1에 체크가 되어 있으면 옵션 1의 값을 가져와서 total에 더하기
+// 			carTotal += Number(checkOpt1.value);
+// 		}
+// 		if(checkOpt2.checked){
+// 			//옵션1에 체크가 되어 있으면 옵션 1의 값을 가져와서 total에 더하기
+// 			carTota2 += Number(checkOpt2.value);
+// 		}
+// 		if(checkOpt3.checked){
+// 			//옵션1에 체크가 되어 있으면 옵션 1의 값을 가져와서 total에 더하기
+// 			carTota3 += Number(checkOpt3.value);
+// 		}
+// 		//위에서 계산한 total값을 value에 넣기
+// 		document.getElementById("total").value = carTotal;
+
+	
+		for (var i = 1; i <= 3; i++) {
+				var checkOpt = document.getElementById("opt" + i);
+				if (checkOpt.checked) {
+					//옵션1에 체크가 되어 있으면 옵션 1의 값을 가져와서 total에 더하기
+					carTotal += Number(checkOpt.value);
+				}
+			}
+		//위에서 계산한 total값을 value에 넣기
+		//document.getElementById("total").value = carTotal;
+		
+		//애는 안되는 코드 >> default value를 바꿔버리기 때문에 정상 동작하지 않는다.
+		document.getElementById("total").setAttribute("value", carTotal);
+		};
+	</script>
+	
+</head>
+<body>
+	<!-- 차량견적을 계산하는 페이지 -->
+	<h1>자동차 견적</h1>
+	<div id = "carZone"> <!-- 자동차 옵션정보가 표시 -->
+		<img src = "img/car1.jpg" alt="자동차">
+		<table id = "estimate">
+			<colgroup>
+				<col width="380px"/>
+				<col width="160px"/>
+				<col width="*"/>
+			</colgroup>
+			<thead>
+				<tr>
+					<th>옵션</th>
+					<th>추가 가격</th>
+					<th>선택</th>
+				</tr>
+			</thead>  
+			<tbody>
+				<tr>
+					<td><label for="opt1">인조가죽시트</label></td>
+					<td>250000</td>
+					<td>
+						<input type = "checkbox" name ="opt1" id="opt1"
+						 value = "250000" onclick = " car();"/>
+					</td>
+				</tr> <!-- 옵션1 -->
+				<tr>
+				
+				
+				<td><label for="opt2">내비게이션</label></td>
+					<td>250000</td>
+					<td>
+						<input type = "checkbox" name ="opt2" id="opt2"
+						 value = "250000" onclick = "car();"/>
+					</td>
+				
+				</tr> <!-- 옵션2 -->
+				<tr>
+				
+				<td><label for="opt3">선루프</label></td>
+					<td>440000</td>
+					<td>
+						<input type = "checkbox" name ="opt3" id="opt3"
+						 value = "440000" onclick = "car();"/>
+					</td>
+				
+				</tr>  <!-- 옵션3 -->
+			</tbody>
+			<tfoot>
+				<tr>
+					<th>(기본)차량가격</th>
+					<td colspan = "2"><input type = "text" name= "total" id = "total" 
+					    value = "15000000" readonly="readonly" /></td>
+				</tr>  <!-- (기본)차량가격 -->
+			</tfoot>
+			
+		</table>
+		</div>
+		
+</body>
+</html>

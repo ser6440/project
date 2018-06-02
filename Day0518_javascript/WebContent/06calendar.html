@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>달력만들기</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/* 
+		오늘 날짜가 포함된 달력 그리기
+		1. Date객체 만들고, 년,월,일 구하고
+		2. 표시할 달력의 줄 수 계산, 해당월의 시작요일 구하기
+		3. 달력그리기
+		*/
+		
+		var day = new Date();	//현재일 객체 생성
+		var year = day.getFullYear();	//현재 년도 반환
+//		var year2 = date.getYear();	//1900기준으로 +년도 반환
+		alert(year);
+//		alert(year2);
+
+		var month = day.getMonth();	//월-1 반환
+		var date = day.getDate();	//현재일 반환
+		
+		//달의 시작일의 요일 구하기
+		var firstDay = new Date(year,month,1);
+		//getDay() : 요일반환  일:0~토:6
+		var firstDayOfWeek = firstDay.getDay();
+		
+		//마지막날 계산
+		var lastDays = [31,28,31,30,31,30,31,31,30,31,30,31];
+		//윤년 구하기
+		//1. 4로 나누어떨어지면서 100으로 나누어 떨어지지 않는다.
+		//2. 400으로 나누어 떨어진다.
+		// 1,2중 하나라도 만족하면 윤달
+		
+		if(year%4==0 && year%100!=0 || year%400==0){
+			//윤달
+			lastDays[1]=29;
+		}
+		
+		//달력의 줄 수
+		//var row = 올림(시작요일 + 날짜/7);
+		var row = Math.ceil((firstDayOfWeek+lastDays[month])/7);
+		
+		document.write("<h1>"+year+"년"+(month+1)+"월</h1>");
+		
+		var calendar = "<table border='1'>";
+		
+		calendar +="<tr>";
+		calendar +="<th>일</th>";
+		calendar +="<th>월</th>";
+		calendar +="<th>화</th>";
+		calendar +="<th>수</th>";
+		calendar +="<th>목</th>";
+		calendar +="<th>금</th>";
+		calendar +="<th>토</th>";
+		calendar +="</tr>";
+		
+/* 		document.write("<table border = '1'>");
+		document.write("<tr>");
+		document.write("<th>일</th>");
+		document.write("<th>월</th>");
+		document.write("<th>화</th>");
+		document.write("<th>수</th>");
+		document.write("<th>목</th>");
+		document.write("<th>금</th>");
+		document.write("<th>토</th>");
+		document.write("</tr>"); */
+		
+		//나머지 달력 그리기
+		var dNum = 1; //일자를 출력하기 위한 수를 저장하는 변수
+		for(var i=0;i<row;i++){
+			document.write("<tr>");
+			for(var j=0;j<7;j++){
+				//내용출력
+				//첫째 줄일때 시작요일 보다 작을 경우 출력 시작 하면 안된다. 
+				//지금 출력하는 숫자가 마지막 일수보다 작거나 같을 때만 출력
+				if(i==0 && j<firstDayOfWeek || dNum > lastDays[month]){
+					//빈칸 출력
+					document.write("<td>&nbsp;</td>");
+				}else{
+					//숫자 출력하고 일수 증가 시키기
+					document.write("<td>"+dNum+"</td>");
+					dNum++;
+				}
+			}
+			document.write("</tr>");
+		}
+		document.write("</table>");
+	</script>
+</body>
+</html>

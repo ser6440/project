@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Math</title>
+<style type="text/css">
+.rkdnl {
+	background: url("img/math_img_1.jpg") no-repeat right;
+}
+
+.qkdnl {
+	background: url("img/math_img_2.jpg") no-repeat right;
+}
+
+.qh {
+	background: url("img/math_img_3.jpg") no-repeat right;
+}
+</style>
+<script type="text/javascript">
+/* 	var maxVal = Math.max(5,4,1,12,7,3);
+	alert(maxVal);
+	document.write(maxVal);
+	
+	var result = Math.pow(5,3);
+	alert(result);
+	
+	//random() : 0~1사이의 난수발생
+	var computer = Math.ceil(Math.random()*6);
+	alert(computer); */
+	
+	/* 사용자에게 가위,바위,보 중에 하나를 입력받아서 
+		컴퓨터랑 가위바위보 하기... */
+		
+	
+	
+	var user = prompt("'가위','바위','보' 중 하나 입력","가위");
+	var userNum;
+	var computer = Math.ceil(Math.random()*3);
+	//1 가위, 2 바위, 3 보
+	//1 이김, 2 짐, 3 비김
+	var result;
+	
+	switch(user){
+	case "가위":
+		userNum = 1;
+		if(computer==1){
+			result = 3;
+		}else if(computer==2){
+			result = 2;
+		}else{
+			result = 1
+		}
+		break;
+	case "바위":
+		userNum = 2;
+		if(computer==1){
+			result = 1;
+		}else if(computer==2){
+			result = 3;
+		}else{
+			result = 2
+		}
+		break;
+	case "보":
+		userNum = 3;
+		if(computer==1){
+			result = 2;
+		}else if(computer==2){
+			result = 1;
+		}else{
+			result = 3
+		}
+		break;
+	}
+	document.write("<img src='img/math_img_" + userNum + ".jpg'>");
+	document.write("<img src='img/math_img_" + computer + ".jpg'>");
+	switch(result){
+	case 1:
+		document.write("<h2>이겼습니다.</h2>");
+		break;
+	case 2:
+		document.write("<h2>졌습니다.</h2>");
+		break;
+	case 3:
+		document.write("<h2>비겼습니다.</h2>");
+		break;
+	}
+	
+</script>
+</head>
+<body>
+	<!-- Math : 수학관련 함수들을 제공하는 내장객체
+		최대값, 최소값, 반올림, 올림, 제곱, 난수
+		abs() : 절대값
+		min() : 최소값
+		max() : 최대값
+		pow() : 제곱
+		random() : 난수발생
+		round() : 반올림  
+		floor() : 내림
+		ceil() : 올림
+		-->
+</body>
+</html>

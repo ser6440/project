@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이미지 맵</title>
+</head>
+<body>
+	<!-- 이미지 전체에 링크를 하나 달아주는게 아니라,
+	부분적으로 이미지에 영역을 지정해서 링크만들어 주기: map
+	 -->
+	<h2>이미지 맵 사용하기</h2>
+	<p>이미지의 영역을 나누어서 부분적으로 링크를 지정할 수 있습니다.</p>
+	<img alt="비트캠프" src="img/con_benefit_preview.jpeg" usemap="#imageMap">
+	<!-- 사용할 map부터 작성 -->
+	<map name="imageMap">
+		<!-- 영역지정할 시 이미지의 좌표를 이용
+			원 중심 좌표, 반지름: 134,149,50 -->
+		<area shape="circle" coords="134,149,50" href="http://www.naver.com">
+		<!-- 영역지정할 때 이미지의 좌표를 사용
+			원 중심좌표, 반지름: 134,149,50
+			사각형 좌측상단 좌표: 40,374,247,444 -->
+		<area shape="circle" coords="134,149,50" href="http://www.naver.com">
+		<area shape="rect" coords="40,374,247,444" href="http://www.naver.com" target="_blank">
+	</map>
+</body>
+</html>

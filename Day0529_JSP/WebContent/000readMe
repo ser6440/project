@@ -1,0 +1,46 @@
+세개 요청 처리하기
+/login	LoginServlet
+/main	MainServlet
+/logout	LogoutServlet
+
+요청은 각각 서블릿이 처리
+LoginServlet
+	임의의 아이디 비밀번호와 입력한 아이디 비밀번호가 일치하면 로그인 처리하고,
+	메인 요청 만들기(response.sendRedirect("main");리다이렉트)
+	일치하지 않으면 로그인 화면으로 보내기 리다이렉트(loginForm.jsp)
+
+MainServlet
+	메인 요청이 들어오면 
+	단,로그인이 되어 있을 때 main.jsp로 포워딩 해주기
+	단, 로그인이 상태가 아니면 loginForm.jsp으로 리다이렉트
+	
+LogoutServlet
+	로그아웃 처리하고, loginForm.jsp로 Redirect
+
+
+	**로그인/로그아웃 처리: 
+	로그인 처리: 로그인을 하고, 브라우저가 꺼지지않으면 계속 로그인 상태라고 간주
+	        session.setAttribute("userid",입력한 아이디);
+	
+	로그인 상태 확인: session의 속성에 "userid"가 있는지 없는지 확인해서
+	                            있으면 로그인 상태, 없으면 로그인 상태가 아님
+	
+	로그아웃 처리: session의 속성에서 "userid"삭제
+	         session.removeAttribute("userid");
+	         
+	**Servlet에서 Session에 접근하기
+	class : javax.servlet.http.HttpSession
+	얻어오는 함수 : request.getSession();
+	HttpSession session = request.getSession();
+	
+	
+화면
+loginForm.jsp
+아이디,비밀번호,로그인버튼
+submit action: login
+
+main.jsp
+아이디님 반갑습니다!
+로그아웃 버튼<button onclick="location.href='logout'">로그아웃</button>
+
+logout.jsp

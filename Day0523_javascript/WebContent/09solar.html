@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>solar</title>
+	<style type="text/css">
+		h1{
+			position: absolute;
+		}
+		
+		#sun{
+			left: 500px;
+			top: 400px;
+			font-size: 4em;
+		}
+		
+		#earth{
+			left: 800px;
+			top: 700px;
+			
+		}
+		
+	</style>
+	<script type="text/javascript">
+	
+		window.onload = function(){
+			
+			var earthMove = 0;
+			var moonMove = 0;
+		
+			
+			var sun = document.getElementById("sun");
+			var earth = document.getElementById("earth");
+			var moon = document.getElementById("moon");
+			
+			setInterval(function(){
+				var earthLeft = 500+300*Math.cos(earthMove);
+				var earthTop = 400+300*Math.sin(earthMove);
+				var moonLeft = earthLeft + 50*Math.cos(moonMove);
+				var moonTop = earthTop + 50*Math.sin(moonMove);
+				
+				earth.style.left = earthLeft + "px";
+				earth.style.top = earthTop + "px";
+				moon.style.left = moonLeft + "px";
+				moon.style.top = moonTop + "px";
+				
+				earthMove += 0.1
+				moonMove += 0.5
+			},100);
+			
+			
+		}
+		
+	</script>
+</head>
+<body>
+
+	<!-- 내용은 html
+		속성,모양 위치 등등 css
+		조작하는건 javascript
+	 -->
+	<h1 id="sun">@</h1>
+	<h1 id="earth">O</h1>
+	<h1 id="moon">*</h1>
+</body>
+</html>

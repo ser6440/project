@@ -9,7 +9,9 @@
 <title>회원목록 보기</title>
 </head>
 <body>
-	<%List<Member> memberList = (List<Member>)request.getAttribute("memberList"); %>
+	<%
+		List<Member> memberList = (List<Member>)request.getAttribute("memberList");
+	%>
 	<table border="1">
 		<tr>
 			<th>아이디</th>

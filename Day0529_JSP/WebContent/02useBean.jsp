@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ page import = "model.Member" %>
-    <% Member m = (Member)request.getAttribute("member");%>
+    <%
+    Member m = (Member)request.getAttribute("member");
+    %>
     <jsp:useBean id="member" class="model.Member"/>
     <jsp:setProperty name="member" property="password" value="123"/>
     

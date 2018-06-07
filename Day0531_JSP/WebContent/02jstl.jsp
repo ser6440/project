@@ -5,7 +5,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>   
 <%-- <c:set> : jsp에서 사용할 변수 선언 및 속성 지정: el에서도 사용가능 --%>
 <c:set var="msg">Hello</c:set>
-<c:set var="member" value="<%=new Member() %>"/>
+<c:set var="member" value="<%=new Member()%>"/>
 
 <c:set var="msg" value="<%=new HashMap<String,Object>() %>" scope="request"></c:set>
 

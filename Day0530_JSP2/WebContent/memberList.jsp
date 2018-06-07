@@ -9,8 +9,10 @@
 <title></title>
 </head>
 <body>
-	<% List<Member> memberList 
-	=  (List<Member>)request.getAttribute("memberList");%>
+	<%
+		List<Member> memberList 
+		=  (List<Member>)request.getAttribute("memberList");
+	%>
 
 	<table border="1">
 		<tr>

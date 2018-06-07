@@ -1,7 +1,9 @@
 <%@page import="model.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <% Member member = (Member)request.getAttribute("member"); %>
+    <%
+    Member member = (Member)request.getAttribute("member");
+    %>
     <%--Attribute는 오브젝트이니까 형변환시켜줘야한다. --%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>

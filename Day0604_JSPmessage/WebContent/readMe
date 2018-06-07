@@ -1,0 +1,49 @@
+해야할일
+java
+	model
+		Message.java
+	dao
+		ConnectionProvider
+		MessageDao.java
+	service
+		MessageService.java
+	servlet
+		MessageServlet.java
+처리를 해야할 요청
+	/write 메시지작성
+	/messageList 화면 요청
+	/pwCheck 비밀번호 확인
+화면
+	messageList.jsp	: 메시지 목록 및 입력창을 보여주는 화면
+	result.jsp : 결과를 경고창으로 출력,messageList로 화면 이동
+	confirmDeletion.jsp	: 삭제시 비밀번호를 입력받는 화면
+		
+Singleton 패턴
+//Singleton : 클래스의 객체를 사용할 때마다 새로운 객체를 만드는것이 아니라 
+//하나의 객체를 공유해서 사용하는 패턴
+//주로 웹프로젝트에서 주요자원에 대한 객체를 사용할 때 적용하는 패턴
+
+//다른 클래스에서는 생성자를 호출하지 못하도록 만들고(생성자를 private으로 만든다), getInstance() 메서드를 
+//이용해서 객체를 생성 또는 인스턴스를 얻을 수 있도록 변경
+
+//Factory Method : 객체를 반환해주는 메서드
+
+//Service에서 객체를 사용하고자 할 때, Service가 직접 객체를 만들지 않고 
+//만들어진 객체를 가져다가 쓴다. 단, 없으면 만들어서 사용
+// : >>> getInstance()메서드를 정의해서 사용
+	
+페이징 처리
+** 페이지 네비게이션을 표시하기위한 모든 정보를 서블릿에서 만들어서
+        페이지로 전달
+   필요한 정보 : 현재 페이지 정보,
+                         해당페이지에 표시될 목록 정보,
+                         처음 네비게이션 시작 페이지,
+                         네비게이션 마지막 페이지,
+                         총 페이지 수,                                                     	
+	               한 페이지당 표시될 목록의 개수
+	
+미리 rownum을 가지는 데이터를 조회 해놓은 상태에서 다시 조회
+	
+	
+	
+			

@@ -1,0 +1,71 @@
+게시판 만들기
+게시글 Create Read Update Delete
+게시글 쓰기
+게시글 수정
+게시글 삭제
+게시글 조회
+-----------기능-----------------
+게시글 목록 보기 : 페이징처리
+새글쓰기 
+상세글보기(게시글 목록에서 클릭하면 상세페이지로 넘어가기)
+글 수정 (상세글보기에서 수정 누르면 수정페이지로)
+글 삭제 (상세글보기에서 삭제 누르면 글 삭제)
+
+-----------화면-------------------
+boardList.jsp
+boardWrite.jsp 새글쓰기
+boardView.jsp 상세글보기
+boardModify.jsp 수정
+boardCheckPass.jsp 비밀번호 확인 삭제할때
+result.jsp 경고창띄우는거
+
+-----------데이터------------------
+시퀀스이름 :	board_seq
+글 번호 : 정수, 자동증가(시퀀스 이용) num primary key
+글 제목 : 문자열                                     title varchar2(50) not null
+글쓴이 : 문자열                                      name  varchar2(30) not null
+비밀번호 : 문자열                                   pass   varchar2(50) not null
+이메일 : 문자열                                      email varchar2(50) not null unique
+내용 : 문자열                                         content varchar2(1000)
+조회수 : 정수                                         readCount number(10) 초기값 0 
+게시일 : 날짜                                         writeDate date 초기값 sysdate
+
+---------요청목록-----------------------------------------------
+1. 게시글 목록보기  
+   board_List 
+   
+2. 글쓰기 
+   board_write_form : 글쓰기 양식 요청
+   board_write      : 글 등록 요청
+   
+3. 상세글보기 
+   board_view : 게시글 상세보기 요청
+    
+4. 글 수정/삭제 
+   4-1 board_check_pass_form : 비밀번호 확인 양식 요청
+   4-2 board_check_pass      : 비밀번호 확인 요청
+   4-3 수정
+   	4-3-1 board_update_form : 게시글 수정 양식 요청
+   	4-3-2 board_update      : 게시글 수정 요청
+   4-4 board_delete         : 게시글 삭제 요청
+   
+-------------해야할일-------------------------------
+1. 프로젝트 설정하기 : 필요한 라이브러리 다운받고 빌드패스 설정
+2. 데이터베이스 테이블 만들기
+3. BoardDao, singleton
+   BoardServlet 커맨드 패턴으로 할건데 약간 다르게 할거라서 클래스만 만들어 주세요
+4. 화면구현
+   
+
+
+
+
+
+
+
+
+
+
+
+
+

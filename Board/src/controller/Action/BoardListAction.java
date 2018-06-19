@@ -1,67 +1,48 @@
-package service;
+package controller.Action;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import dao.MessageDao;
-import model.Message;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
-public class MessageService {
-	private static MessageService instance;
-	private MessageDao messageDao;
-	
-	//한 페이지에 표시될 메시지의 개수
-	private static final int NUM_OF_MESSAGE_PER_PAGE = 10;
-	//한번에 표시될 네비게이션의 개수
-	private static final int NUM_OF_NAVI_PAGE = 10;
-	
-	
-	private MessageService() {
-		messageDao = MessageDao.getInstance();
-	}
-	
-	public static MessageService getInstance() {
-		if(instance == null) {
-			instance = new MessageService();
-		}
-		return instance;
-	}
-	//모든 메시지 목록 가져오기
-	public List<Message> getAllMessages(){
-		return messageDao.selectAll();
-	}
-	
-	public boolean writeMessage(String name,String pw,String message) {
-		Message m = new Message();
-		m.setName(name);
-		m.setPassword(pw);
-		m.setMessage(message);
-		int result = messageDao.insertMessage(m);
-		if (result > 0) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-	
-	public boolean deleteMessage(int id, String password) {
-		Message message = messageDao.selectOne(id); 
+import dao.BoardDao;
+import dao.BoardDaoImp;
+import model.Board;
+
+public class BoardListAction implements Action{
+		//한 페이지에 표시될 메시지의 개수
+		private static final int NUM_OF_MESSAGE_PER_PAGE = 10;
+		//한번에 표시될 네비게이션의 개수
+		private static final int NUM_OF_NAVI_PAGE = 10;
 		
-		if(message != null && message.getPassword().equals(password)) {
-			messageDao.deleteMessage(id);
-			return true;
+	@Override
+	public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		System.out.println("BoardList");
+		
+		
+		int pageNumber = 1;
+		String strPageNumber = req.getParameter("page");
+
+		if (strPageNumber != null) {
+			pageNumber = Integer.parseInt(strPageNumber);
 		}
-		return false;
+		
+		BoardDao dao = BoardDaoImp.getInstance();
+		
+		
+		Map<String, Object> viewData = getBoardList(pageNumber);
+		
+		req.setAttribute("viewData", viewData);
+
+		req.getRequestDispatcher("board/boardList.jsp").forward(req, resp);
+		
 	}
 	
-	
-	
-	
-	
-	
-	//가져오기  action 에다가 넣기
-	public Map<String, Object> getMessageList(int pageNumber) {
+	public Map<String, Object> getBoardList(int pageNumber) {
 		//현재 페이지에 표시될 메시지 목록 가져오기
 		//화면에 표시될 네비게이션의 정보를 계산 및 생성
 		//리스트 + 나머지 데이터들도 같이 담아서 전달 >> Map으로 전달(messageList,startPage,endPage,totalPage)
@@ -80,17 +61,17 @@ public class MessageService {
 		int endRow = 0;
 		int totalCount = 0;	//총 메시지의 개수, 총 페이지 수를 구하기 위해 필요
 		
-		totalCount = messageDao.selectCount();	//총 메세지 개수	
+		totalCount = BoardDaoImp.selectCount();	//총 메세지 개수	
 		firstRow = (pageNumber-1)*NUM_OF_MESSAGE_PER_PAGE+1;
 		endRow = pageNumber*NUM_OF_MESSAGE_PER_PAGE;
 		
 		//dao 만들기 : List<Message> selectList(int,int)
 		
 		//여기 부분만 수정하기
-		List<Message> messageList = messageDao.selectList(firstRow, endRow);
+		List<Board> boardList = BoardDaoImp.selectList(firstRow, endRow);
 		
 		viewData.put("currentPage", pageNumber);
-		viewData.put("messageList", messageList);
+		viewData.put("boardList", boardList);
 		viewData.put("pageTotalCount", calPageTotalCount(totalCount));
 		viewData.put("startPage", getStartPage(pageNumber));
 		viewData.put("endPage", getEndPage(pageNumber));
@@ -136,4 +117,5 @@ public class MessageService {
 		int endPage = (((pageNum - 1)/NUM_OF_NAVI_PAGE)+1)*NUM_OF_NAVI_PAGE;
 		return endPage;
 	}
+
 }

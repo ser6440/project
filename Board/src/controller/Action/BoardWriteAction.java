@@ -14,16 +14,11 @@ public class BoardWriteAction implements Action{
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		//파라미터로 전달받은 데이터를 데이터베이스에 넣고
-		//결과 출력하고, list로 화면전환
-		
 		BoardDao dao = BoardDaoImp.getInstance();
 		
 		Board board = new Board();
 		board.setTitle(req.getParameter("title"));
-		board.setName(req.getParameter("name"));
-		board.setPass(req.getParameter("pass"));
-		board.setEmail(req.getParameter("email"));
+		board.setId(req.getParameter("id"));
 		board.setContent(req.getParameter("content"));
 		
 		
@@ -40,7 +35,10 @@ public class BoardWriteAction implements Action{
 		}
 		req.setAttribute("url", "board_list");
 		
-		req.getRequestDispatcher("jsp/result.jsp").forward(req, resp);
+		req.getRequestDispatcher("boardResult.jsp").forward(req, resp);
+		
+		
+		
 	}
 
 }

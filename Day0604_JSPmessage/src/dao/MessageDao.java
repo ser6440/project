@@ -177,6 +177,9 @@ public class MessageDao {
 		return result;
 	}
 	
+	
+	
+	
 	public List<Message> selectList(int firstRow, int endRow){
 		String sql = "select  * " 
 				+ "  from (select rownum as rnum," 
@@ -232,6 +235,8 @@ public class MessageDao {
 		return result;
 	}
 	
+	
+	//가져와서 sql 바꾸기 
 	public int selectCount() {
 		//총메세지의 개수를 구하는 메서드
 		String sql ="select count(*) from message";
